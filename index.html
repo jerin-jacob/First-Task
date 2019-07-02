@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Html/JS Tasks</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <style> 
+            .container{
+                width: 1170px;
+                margin: 0px;
+                padding: 0px auto;
+            }
+            .display{
+                /* display: none; */
+            }
+            .show{
+                display: block;
+            }
+        </style>
+
+                  
+
+    </head>
+    <body>
+        <div class="container" id="main">
+            <h2>HTML/JS Taks</h2>
+            <div class="row" style="border: 1px solid #000; margin: 20px">
+                <div class="col-md-4" style="border-right: 1px solid #000;padding: 0px">
+                    <button onclick= "myFunction(1,'demo')" style ="border-bottom: 1px solid #000; width: 100%; height: 40px;">Question 1</button>
+                    <button onclick= "myFunction(2,'demo1')" style="border-bottom: 1px solid #000; width: 100%; height: 40px;">Question 2</button>
+                    <button  onclick= "myFunction(3,'demo2')" style="width: 100%; height: 40px;">Question 3</button>
+                    
+                </div>
+                <div class="subdiv" id="main1">
+                    
+
+                    <div>
+                        <p id="demo">What is your name?</p>
+
+                        <input placeholder="name" type="text">
+                        
+                        </div>
+                    <div>
+                            <p id="demo1">What is your date of birth?</p>
+                            <input placeholder="DOB"  type="date">
+                    </div>
+
+                    <div>
+                          <p id ="demo2">Do you wanna know your age?</p>
+                          <input placeholder = "Options" type= "button">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+    <script>
+        function myFunction(n, demo) {
+            var temp = n;
+            var temp1 = demo;
+            var value= 'a' ;
+                 
+            console.log(" "+ temp1);
+            if (temp == 1) {
+                value = "what is your name?";
+            }
+            else if (temp == 2) {
+                value = "What is your age?";
+            }
+            else{
+              value = "Do you wanna know your age?";
+            }
+            document.getElementById(temp1).innerHTML= value;
+                     
+            //function getElemntsInsideContainer
+            getElemntsInsideContainer( 'main1',temp1);
+
+        }
+        function getElemntsInsideContainer( main, temp1){
+            var div = document.getElementById(main);
+            console.log("1"+div); 
+           subdiv= div.getElementsByTagName('div'), myArray = [];
+           var iddd = subdiv.getElementById(temp1).id;
+           console.log(iddd);
+
+         
+        for(var i=0; i < subdiv.length; i++){
+            var elem = subdiv[i];
+            
+        if(elem.id.indexOf(temp1) === 0 ){
+            myArray.push(elem.id);
+
+          document.getElementById(temp1).style.display = "none";
+          
+        }
+         else  {
+                document.getElementById(temp1).style.display = "block";
+        }
+           
+        } 
+        console.log(myArray);
+    }
+             
+    </script>
+
+</html>
+
